@@ -1,0 +1,45 @@
+<html>
+<head>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+.container { display: grid; gap: 20px; padding: 20px; grid-template-columns: 1fr; }
+.item { display: flex; flex-direction: column; }
+.item video { width: 100%; height: auto; }
+.video-wrapper { position: relative; display: inline-block; width: 100%; }
+.play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(0, 0, 0, 0.7); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s; }
+.pause-overlay { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; background: rgba(0, 0, 0, 0.7); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s; }
+.hidden { display: none; }
+@media (min-width: 768px) { .container { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="item">
+        <h1>Video - natural control</h1>
+        <video src="https://www.sample-videos.com/video321/mp4/720/big_buck_bunny_720p_30mb.mp4" controls loop></video>
+    </div>
+    <div class="item">
+        <h1>Video - handmade control</h1>
+        <div class="video-wrapper">
+            <video id="custom-video" src="https://www.sample-videos.com/video321/mp4/720/big_buck_bunny_720p_30mb.mp4" loop></video>
+            <div class="play-overlay" id="play-btn">
+                <i data-lucide="play" style="color: white; width: 32px; height: 32px;"></i>
+            </div>
+            <div class="pause-overlay hidden" id="pause-btn">
+                <i data-lucide="pause" style="color: white; width: 20px; height: 20px;"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+lucide.createIcons();
+const video = document.getElementById('custom-video');
+const playBtn = document.getElementById('play-btn');
+const pauseBtn = document.getElementById('pause-btn');
+playBtn.addEventListener( 'click', () => { video.play();  playBtn.classList.add('hidden');  pauseBtn.classList.remove('hidden'); });
+pauseBtn.addEventListener('click', () => { video.pause(); pauseBtn.classList.add('hidden'); playBtn.classList.remove('hidden');  });
+video.addEventListener('pause', () => { playBtn.classList.remove('hidden'); pauseBtn.classList.add('hidden'); });
+video.addEventListener('ended', () => { playBtn.classList.remove('hidden'); pauseBtn.classList.add('hidden'); });
+</script>
+</body>
+</html>
