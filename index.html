@@ -2,6 +2,7 @@
 <head>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <style>
+.h1 { font-size: 24px; font-weight: bold; background-color: #c03535; padding: 10px; }
 .container { display: grid; gap: 20px; padding: 20px; grid-template-columns: 1fr; }
 .item { display: flex; flex-direction: column; }
 .item video { width: 100%; height: auto; }
@@ -13,15 +14,49 @@
 </head>
 <body>
 <div class="container">
+    <h1>Default Controls</h1>
     <div class="item">
-        <h1>Default controls / webm:vp9/opus</h1>
+        <h2>webm: 🎥 vp9 / 🎵 opus</h1>
         <video src="https://pesfjnynegcmekipbkyo.supabase.co/storage/v1/object/public/hero//250709_1132_Mantey_Video.webm" controls loop></video>
     </div>
-
     <div class="item">
-        <h1>Custom controls / webm:vp9/opus</h1>
+        <h2>mp4: 🎥 h264 / 🎵 aac</h1>
+        <video src="https://pesfjnynegcmekipbkyo.supabase.co/storage/v1/object/public/test//in_h264.mp4" controls loop></video>
+    </div>
+    <div class="item">
+        <h2>mp4: 🎥 hevc / 🎵 aac</h1>
+        <video src="https://pesfjnynegcmekipbkyo.supabase.co/storage/v1/object/public/test//in_h265.mp4" controls loop></video>
+    </div>
+
+    <h1>Custom Controls</h1>
+    <div class="item">
+        <h2>Custom controls / webm: 🎥 vp9 / 🎵 opus</h1>
         <div class="video-wrapper">
             <video id="custom-video" src="https://pesfjnynegcmekipbkyo.supabase.co/storage/v1/object/public/hero//250709_1132_Mantey_Video.webm" loop></video>
+            <div class="play-overlay" id="play-btn">
+                <i data-lucide="play" style="color: white; width: 32px; height: 32px;"></i>
+            </div>
+            <div class="pause-overlay hidden" id="pause-btn">
+                <i data-lucide="pause" style="color: white; width: 20px; height: 20px;"></i>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <h2>Custom controls / mp4: 🎥 h264 / 🎵 aac</h2>
+        <div class="video-wrapper">
+            <video id="custom-video" src="https://pesfjnynegcmekipbkyo.supabase.co/storage/v1/object/public/test//in_h264.mp4" loop></video>
+            <div class="play-overlay" id="play-btn">
+                <i data-lucide="play" style="color: white; width: 32px; height: 32px;"></i>
+            </div>
+            <div class="pause-overlay hidden" id="pause-btn">
+                <i data-lucide="pause" style="color: white; width: 20px; height: 20px;"></i>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <h2>Custom controls / mp4: 🎥 hevc / 🎵 aac</h2>
+        <div class="video-wrapper">
+            <video id="custom-video" src="https://pesfjnynegcmekipbkyo.supabase.co/storage/v1/object/public/test//in_h265.mp4" loop></video>
             <div class="play-overlay" id="play-btn">
                 <i data-lucide="play" style="color: white; width: 32px; height: 32px;"></i>
             </div>
